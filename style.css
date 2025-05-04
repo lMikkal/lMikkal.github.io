@@ -1,0 +1,131 @@
+/* ===== Base Styles ===== */
+:root {
+    --bs-body-font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bs-heading-font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    line-height: 1.6;
+    padding-top: 76px; /* Navbar height */
+    color: #212529;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--bs-heading-font-family);
+    font-weight: 700;
+}
+
+/* ===== Custom Components ===== */
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: 2px;
+    background: var(--bs-danger);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #2D3047 0%, #1a1c2f 100%);
+    min-height: calc(100vh - 76px);
+    overflow: hidden;
+}
+
+.shape-fill {
+    fill: #FFFFFF;
+}
+
+/* Cards */
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.project-links {
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .project-links {
+    opacity: 1 !important;
+}
+
+/* Floating Back-to-Top Button (Always Visible) */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+}
+
+/* ===== Utilities ===== */
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding-top: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-link::after {
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .hero {
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
